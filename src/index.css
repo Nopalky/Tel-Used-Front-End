@@ -2,8 +2,10 @@
 @import "tailwindcss";
 
 @theme {
+  --color-brand: #E33E38;
+  --color-line: #e5e7eb;
+  --color-muted: #6b7280;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --color-brand: #e53935;
   --color-brand-dark: #c62828;
   --color-brand-soft: #fdecea;
 }
