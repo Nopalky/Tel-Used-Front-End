@@ -1,7 +1,9 @@
-import ChatPage from './pages/ChatPage';
+import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 function App() {
-  return <ChatPage />;
+  return <RegisterPage />;
 }
 
 export default App;
