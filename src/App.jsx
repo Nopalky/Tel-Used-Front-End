@@ -6,4 +6,4 @@ function App() {
   return <RegisterPage />;
 }
 
-export default App
+export default App;
