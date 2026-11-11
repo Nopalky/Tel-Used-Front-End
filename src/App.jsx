@@ -1,7 +1,9 @@
-import CartPage from './pages/CartPage'
+import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 function App() {
-  return <CartPage />
+  return <RegisterPage />;
 }
 
-export default App
+export default App;
