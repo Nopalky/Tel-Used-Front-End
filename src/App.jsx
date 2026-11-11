@@ -1,8 +1,9 @@
-import './App.css'
-import ProfilePage from './pages/ProfilePage'
+import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 function App() {
-  return <ProfilePage/>
+  return <RegisterPage />;
 }
 
-export default App
+export default App;
