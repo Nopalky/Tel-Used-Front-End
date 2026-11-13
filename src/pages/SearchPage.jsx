@@ -50,7 +50,6 @@ function SearchPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-gray-800">
-      <Navbar query={query} onQueryChange={setQuery} />
 
       <main className="mx-auto grid max-w-7xl gap-6 px-4 py-4 lg:grid-cols-[260px_1fr]">
         <FilterPanel

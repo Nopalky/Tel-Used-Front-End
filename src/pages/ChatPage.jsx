@@ -95,43 +95,7 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-white overflow-hidden font-sans">
-      {/* TOP NAVBAR */}
-      <header className="h-20 border-b border-gray-200 px-8 flex items-center justify-between bg-white shrink-0">
-        {/* Logo */}
-        <div className="flex items-center">
-          <span className="text-2xl font-black italic text-red-600 tracking-tight leading-none">
-            Tel<br />
-            <span className="not-italic text-red-500 font-bold">Used</span>
-          </span>
-        </div>
-
-        {/* Search Bar */}
-        <div className="flex-1 max-w-2xl mx-12">
-          <div className="relative flex items-center">
-            <Search className="absolute left-5 w-5 h-5 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Search our catalog.."
-              className="w-full pl-12 pr-6 py-3 bg-white border border-gray-300 rounded-full text-sm focus:outline-none focus:border-red-500 shadow-sm"
-            />
-          </div>
-        </div>
-
-        {/* Icons & Profile */}
-        <div className="flex items-center space-x-6">
-          <button className="text-red-500 hover:text-red-600 transition-colors">
-            <ShoppingCart className="w-7 h-7 fill-current" />
-          </button>
-          <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-200">
-            <img
-              src="sample-avatar.png"
-              alt="Profile"
-              className="w-full h-full object-cover bg-red-400"
-            />
-          </div>
-        </div>
-      </header>
+    <div className="flex flex-col h-[calc(100vh-4rem)] bg-white overflow-hidden font-sans">
 
       {/* MAIN CONTENT CONTAINER */}
       <div className="flex flex-1 overflow-hidden">
