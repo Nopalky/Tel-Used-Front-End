@@ -131,6 +131,13 @@ const ProductDetailPage = () => {
 
       <hr className="border-t border-gray-300" />
 
+      <div className="description flex flex-col gap-3 px-4 py-6 md:px-10">
+        <h3 className="font-semibold">Deskripsi Produk</h3>
+        <p className="max-w-3xl text-sm leading-relaxed text-gray-700">{item.description}</p>
+      </div>
+
+      <hr className="border-t border-gray-300" />
+
       <div className="related flex flex-col gap-6 px-4 py-6 md:px-10">
         <h3 className="font-semibold">Anda mungkin menyukai</h3>
         <div className="grid grid-cols-2 items-stretch gap-3 sm:grid-cols-3 md:flex md:flex-wrap md:gap-4">
