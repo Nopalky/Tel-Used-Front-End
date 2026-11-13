@@ -5,11 +5,19 @@ import {
   User,
   Menu,
   X,
+  Home
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router";
 
 const navActions = [
+  { id: "cart", label: "Cart", to: "/cart", icon: ShoppingCart },
+  { id: "chat", label: "Messages", to: "/chat", icon: MessageSquareText },
+  { id: "profile", label: "User", to: "/profile", icon: User, highlight: true },
+];
+
+const asideNavActions = [
+  { id: "home", label: "Home", to: "/", icon: Home },
   { id: "cart", label: "Cart", to: "/cart", icon: ShoppingCart },
   { id: "chat", label: "Messages", to: "/chat", icon: MessageSquareText },
   { id: "profile", label: "User", to: "/profile", icon: User, highlight: true },
@@ -39,7 +47,7 @@ export default function Navbar() {
           <X className="size-6" />
         </button>
 
-        {navActions.map(({ id, label, to, icon: Icon }) => (
+        {asideNavActions.map(({ id, label, to, icon: Icon }) => (
           <Link
             key={id}
             to={to}
@@ -51,7 +59,7 @@ export default function Navbar() {
           </Link>
         ))}
       </aside>
-      <Link to={"/"} className="text-xl font-bold italic text-brand">
+      <Link to={"/"} className="text-3xl font-bold italic text-brand">
         Tel Used
       </Link>
       <div className="flex flex-1 items-center gap-2 rounded-full border border-[#999] px-3.5 py-1.5 max-md:order-3 max-md:basis-full">
@@ -60,7 +68,7 @@ export default function Navbar() {
           type="search"
           name="search-bar"
           id="search-bar"
-          className="flex-1 bg-transparent text-center text-[13px] outline-none"
+          className="flex-1 bg-transparent text-[13px] outline-none"
         />
       </div>
       <div className="hidden md:flex items-center gap-4.5">

@@ -24,21 +24,13 @@ const categoryList = [
   { id: 'Hobbies',name: 'Olahraga & Hobi', image: Hobbies},
 ];
 
-// const searchedItemList = [
-//   { id: 1, category: 'Sepatu', name: 'Nike Dunk Low "Sanddrift"', price: 200000, distance: 1.2, image: Sneaker },
-//   { id: 2, category: 'Jaket', name: 'Leather Jacket', price: 550000, distance: 1.2, image: Jacket },
-//   { id: 3, category: 'Kompor listrik', name: 'Kompor listrik + teflon', price: 200000, distance: 1.2, image: Cooker },
-//   { id: 4, category: 'Kamera', name: 'Sony Alpha a6000 Mirrorless Digital Camera', price: 200000, distance: 1.2, image: Camera },
-//   { id: 5, category: 'Kipas', name: 'Kipas tangan warna putih', price: 200000, distance: 1.2, image: Fan },
-// ]
-
 const HomePage = () => {
   const {products, loading, error} = useProducts();
   return (
     <>
         <div className="homepage pt-5">
           <div className="ads flex px-4 md:px-10 justify-center">
-            <img src={ADS_IMAGE} alt="ads" className="w-1/2 h-auto" />
+            <img src={ADS_IMAGE} alt="ads" className="md:w-1/2 h-auto" />
           </div>
         </div>
 

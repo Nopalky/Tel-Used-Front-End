@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, ShoppingCart, Send } from 'lucide-react';
+import { Send, ArrowLeft } from 'lucide-react';
 
 const initialChats = [
   {
@@ -74,6 +74,8 @@ export default function ChatPage() {
   const [activeChatId, setActiveChatId] = useState(1);
   const [messages, setMessages] = useState(initialMessages);
   const [inputText, setInputText] = useState('');
+  // On mobile, show either the chat list or the conversation
+  const [showChat, setShowChat] = useState(false);
 
   const activeChat = chats.find((c) => c.id === activeChatId);
   const currentMessages = messages[activeChatId] || [];
@@ -95,19 +97,24 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-4rem)] bg-white overflow-hidden font-sans">
+    <div className="flex flex-col h-[calc(100dvh-4rem)] bg-white overflow-hidden font-sans">
 
       {/* MAIN CONTENT CONTAINER */}
       <div className="flex flex-1 overflow-hidden">
         {/* LEFT SIDEBAR (CHAT LIST) */}
-        <aside className="w-80 border-r border-gray-200 bg-white flex flex-col overflow-y-auto shrink-0">
+        <aside
+          className={`${showChat ? 'hidden' : 'flex'} md:flex w-full md:w-80 border-r border-gray-200 bg-white flex-col overflow-y-auto shrink-0`}
+        >
           <div className="divide-y divide-gray-100">
             {chats.map((chat) => {
               const isActive = chat.id === activeChatId;
               return (
                 <div
                   key={chat.id}
-                  onClick={() => setActiveChatId(chat.id)}
+                  onClick={() => {
+                    setActiveChatId(chat.id);
+                    setShowChat(true);
+                  }}
                   className={`flex items-center gap-4 p-4 cursor-pointer transition-colors ${
                     isActive ? 'bg-gray-100' : 'hover:bg-gray-50'
                   }`}
@@ -128,20 +135,30 @@ export default function ChatPage() {
         </aside>
 
         {/* RIGHT CHAT AREA */}
-        <main className="flex-1 flex flex-col bg-gray-50 overflow-hidden relative">
+        <main
+          className={`${showChat ? 'flex' : 'hidden'} md:flex flex-1 min-w-0 flex-col bg-gray-50 overflow-hidden relative`}
+        >
           {/* Chat Header Banner */}
-          <div className="bg-[#E53935] px-6 py-3.5 text-white font-semibold text-lg text-left shadow-sm shrink-0">
-            {activeChat?.name}
+          <div className="bg-[#E53935] px-4 md:px-6 py-3.5 text-white font-semibold text-lg text-left shadow-sm shrink-0 flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setShowChat(false)}
+              className="md:hidden p-1 -ml-1"
+              aria-label="Kembali ke daftar chat"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </button>
+            <span className="truncate">{activeChat?.name}</span>
           </div>
 
           {/* Messages Container */}
-          <div className="flex-1 overflow-y-auto p-8 space-y-6">
+          <div className="flex-1 overflow-y-auto p-4 md:p-8 space-y-4 md:space-y-6">
             {currentMessages.map((msg) => {
               const isMe = msg.sender === 'me';
               return (
                 <div key={msg.id} className={`flex ${isMe ? 'justify-end' : 'justify-start'}`}>
                   <div
-                    className={`max-w-md px-5 py-3.5 rounded-2xl text-sm leading-relaxed shadow-sm ${
+                    className={`max-w-[80%] md:max-w-md break-words px-4 md:px-5 py-3 md:py-3.5 rounded-2xl text-sm leading-relaxed shadow-sm text-left ${
                       isMe
                         ? 'bg-[#A83232] text-white rounded-br-none'
                         : 'bg-white text-gray-800 rounded-bl-none border border-gray-200'
@@ -155,17 +172,17 @@ export default function ChatPage() {
           </div>
 
           {/* Chat Input Footer */}
-          <div className="p-6 bg-gray-50 shrink-0">
+          <div className="p-3 md:p-6 bg-gray-50 shrink-0">
             <form
               onSubmit={handleSendMessage}
-              className="bg-white rounded-full shadow-sm border border-gray-200 px-6 py-3 flex items-center gap-4 max-w-5xl mx-auto"
+              className="bg-white rounded-full shadow-sm border border-gray-200 px-4 md:px-6 py-3 flex items-center gap-3 md:gap-4 max-w-5xl mx-auto"
             >
               <input
                 type="text"
                 placeholder="Tulis pesan..."
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                className="flex-1 text-sm bg-transparent outline-none text-gray-700 placeholder-gray-400"
+                className="flex-1 min-w-0 text-sm bg-transparent outline-none text-gray-700 placeholder-gray-400"
               />
               <button
                 type="submit"
