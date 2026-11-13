@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Bell, Menu, Edit3, Share2 } from 'lucide-react';
-import profileImg from '../assets/hero.png';
+// import profileImg from '../assets/hero.png';
 
 export default function ProfilePage() {
   // State untuk tab aktif: 'semua-barang' | 'favorites' | 'reviews'
@@ -15,50 +15,6 @@ export default function ProfilePage() {
 
   return (
     <div className='min-h-screen bg-[#F2F0EB] font-sans text-gray-800 antialiased'>
-      {/* Header */}
-      <header className='bg-white border-b border-gray-200 sticky top-0 z-30 shadow-xs'>
-        <div className='max-w-6xl mx-auto px-4 py-3 flex items-center justify-between'>
-          {/* Logo Tel Used & Title */}
-          <div className='flex items-center space-x-4 sm:space-x-6'>
-            <div className='leading-tight select-none cursor-pointer'>
-              <span className='block text-xl sm:text-2xl font-black tracking-tight text-[#D9383A] font-serif'>
-                Tel
-              </span>
-              <span className='block text-xl sm:text-2xl font-black tracking-tight text-[#D9383A] font-serif -mt-1'>
-                Used
-              </span>
-            </div>
-
-            {/* Pembatas warna merah */}
-            <div className='h-7 sm:h-9 w-[1.5px] bg-[#D9383A]' />
-
-            {/* Page Title */}
-            <h1 className='text-lg sm:text-xl font-medium text-[#D9383A]'>
-              Profile
-            </h1>
-          </div>
-
-          {/* Icons Interaktif */}
-          <div className='flex items-center space-x-3 sm:space-x-4'>
-            {/* Icon Notifikasi */}
-            <button
-              type='button'
-              aria-label='Notification'
-              className='w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#D9383A] text-white flex items-center justify-center hover:bg-[#c42f31] active:scale-95 transition shadow-sm cursor-pointer'
-            >
-              <Bell className='w-4 h-4 sm:w-5 sm:h-5' />
-            </button>
-            <button
-              type='button'
-              aria-label='Menu'
-              className='p-1.5 text-gray-800 hover:text-black rounded hover:bg-gray-100 transition cursor-pointer'
-            >
-              <Menu className='w-6 h-6 sm:w-7 sm:h-7' />
-            </button>
-          </div>
-        </div>
-      </header>
-
       {/*  Konten Utama */}
       <main className='max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8'>
         <div className='bg-white rounded-lg shadow-sm border border-gray-100 p-6 sm:p-8 md:p-10 min-h-[560px]'>
@@ -66,7 +22,7 @@ export default function ProfilePage() {
           <div className='flex items-center space-x-4 sm:space-x-5'>
             {/* Foto Profile */}
             <div className='w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#D9383A] flex items-center justify-center overflow-hidden border-2 border-white shadow-sm flex-shrink-0'>
-              <img src={profileImg} alt="Profile" className='w-full h-full object-cover'/>
+              <img src={''} alt="Profile" className='w-full h-full object-cover'/>
             </div>
 
             {/* Nama & Email */}

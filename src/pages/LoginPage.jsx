@@ -4,6 +4,8 @@ import RightComp from "../assets/sirip-kanan.png";
 import Field from "../components/Field";
 
 import { User2, Key } from "lucide-react";
+import { Link } from "react-router";
+import {validateLogin} from "../utils/Validations";
 
 export default function LoginPage() {
   const [form, setForm] = useState({
@@ -11,9 +13,21 @@ export default function LoginPage() {
     password: "",
   });
 
+  const[error, setError] = useState(null)
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    setError({...error, [e.target.name] : undefined})
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const found = validateLogin(form);
+    setError(found);
+    if(Object.keys(found).length > 0) return;
+  }
+
+  
   return (
     <>
       <div className="flex overflow-y-hidden w-full h-screen ">
@@ -28,7 +42,7 @@ export default function LoginPage() {
           <p className="text-md text-muted">
             Yuk login dulu, biar bisa beli barang favoritmu!
           </p>
-          <form action="#" className="mt-20 flex flex-col">
+          <form onSubmit={handleSubmit} className="mt-20 flex flex-col">
             <div className="flex flex-col gap-7">
                 <Field
                 Icon={User2}
@@ -37,6 +51,7 @@ export default function LoginPage() {
                 name="username"
                 value={form.username}
                 onChange={handleChange}
+                error={error?.username}
                 />
                 <Field
                 Icon={Key}
@@ -45,13 +60,14 @@ export default function LoginPage() {
                 name="password"
                 value={form.password}
                 onChange={handleChange}
+                error={error?.password}
                 />
             </div>
             <a href="#" className="self-end text-muted mt-3 mr-4">Lupa Password</a>
             <button className="mt-15 px-3 py-4 bg-[#9C3C38] rounded-3xl text-white font-bold text-xl">Log in</button>
           </form>
           <p className="mt-10 text-muted">
-            Belum memiliki akun? <a href="#" className="text-black font-semibold">Daftar disini</a>
+            Belum memiliki akun? <Link to="/register" className="text-black font-semibold">Daftar disini</Link>
           </p>
         </div>
       </div>

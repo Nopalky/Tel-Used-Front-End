@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router'
 import CartHeader from '../components/cart/CartHeader'
 import Checkbox from '../components/cart/Checkbox'
 import VoucherList from '../components/cart/VoucherList'
@@ -43,6 +44,7 @@ function formatRupiah(number) {
 }
 
 function CartPage() {
+  const navigate = useNavigate()
   const [items, setItems] = useState(firstItems)
   const [vouchers, setVouchers] = useState(firstVouchers)
   const [showVoucher, setShowVoucher] = useState(false)
@@ -93,12 +95,11 @@ function CartPage() {
       alert('Pilih minimal 1 produk untuk checkout')
       return
     }
-    alert('Checkout ' + checkedItems.length + ' produk, total ' + formatRupiah(total))
+    navigate('/checkout')
   }
 
   return (
     <div className="flex min-h-svh flex-col bg-[#F1EFEA] text-left font-sans text-sm text-black">
-      <CartHeader avatarSrc={sampleAvatar} />
 
       <main className="flex flex-1 flex-col px-3 pt-6 md:px-[32px] md:pt-[32px]">
         {showVoucher ? (
