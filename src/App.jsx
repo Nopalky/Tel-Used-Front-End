@@ -1,7 +1,9 @@
-import ProfilePage from "./pages/ProfilePage";
+import { RouterProvider } from 'react-router';
+import router from './router'
 
 function App() {
-    return <ProfilePage />;
+  // return <RegisterPage />;
+  return <RouterProvider router={router} />
 }
 
 export default App;
