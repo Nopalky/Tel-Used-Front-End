@@ -1,6 +1,5 @@
 import { SlidersHorizontal } from 'lucide-react'
 import { useState, useEffect } from 'react'
-import Navbar from '../components/Navbar'
 import ProductCard from '../components/ProductCard'
 import FilterPanel from '../components/filter/FilterPanel'
 import ActiveFilters from '../components/filter/ActiveFilters'

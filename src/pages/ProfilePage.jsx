@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Bell, Menu, Edit3, Share2 } from 'lucide-react';
-// import profileImg from '../assets/hero.png';
+import { useState } from 'react';
+import { Edit3, Share2 } from 'lucide-react';
+import profileImg from '../assets/profile.jpg';
 
 export default function ProfilePage() {
   // State untuk tab aktif: 'semua-barang' | 'favorites' | 'reviews'
@@ -22,7 +22,7 @@ export default function ProfilePage() {
           <div className='flex items-center space-x-4 sm:space-x-5'>
             {/* Foto Profile */}
             <div className='w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#D9383A] flex items-center justify-center overflow-hidden border-2 border-white shadow-sm flex-shrink-0'>
-              <img src={''} alt="Profile" className='w-full h-full object-cover'/>
+              <img src={profileImg} alt="Profile" className='w-full h-full object-cover'/>
             </div>
 
             {/* Nama & Email */}
